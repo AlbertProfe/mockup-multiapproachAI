@@ -32,20 +32,21 @@ spring.datasource.password=
 
 ## Connection Details (current config — file-based)
 
-| Property     | Value                             |
-| ------------ | --------------------------------- |
-| JDBC URL     | `jdbc:h2:file:./db/chatdb`        |
-| Driver Class | `org.h2.Driver`                   |
-| Username     | `albert`                          |
-| Password     | `1234`                            |
-| Dialect      | `org.hibernate.dialect.H2Dialect` |
+| Property     | Value                                                                                |
+| ------------ | ------------------------------------------------------------------------------------ |
+| JDBC URL     | `jdbc:h2:file:./db/chatdb` (relative)                                                |
+|              | `jdbc:h2:/home/albert/MyProjects/Sandbox/mockup-nottenim/db/chatdb` (absolute Linux) |
+| Driver Class | `org.h2.Driver`                                                                      |
+| Username     | `albert`                                                                             |
+| Password     | `1234`                                                                               |
+| Dialect      | `org.hibernate.dialect.H2Dialect`                                                    |
 
 ## Database Location
 
 File-based data is stored at the project root:
 
 ```
-project-root/
+/home/albert/MyProjects/Sandbox/mockup-nottenim/
 ├── db/
 │   ├── chatdb.mv.db      # Main database file
 │   └── chatdb.trace.db   # Trace log (if enabled)
