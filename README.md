@@ -4,10 +4,37 @@ Spring Boot chatbot mockup with Thymeleaf UI, H2 database, and Spring AI (OpenAI
 
 ## Quick Start
 
+### 0. Clone
+
+```bash
+git clone https://github.com/AlbertProfe/mockup-multiapproachAI.git
+cd mockup-multiapproachAI
+```
+
+### 1. Set API Key
+
 ```bash
 export OPENAI_API_KEY=sk-...
-mvn spring-boot:run
 ```
+
+### 2. Run
+
+**Linux / macOS:**
+```bash
+./mvnw spring-boot:run
+```
+
+**Windows (CMD):**
+```cmd
+mvnw spring-boot:run
+```
+
+**Windows (PowerShell):**
+```powershell
+.\mvnw spring-boot:run
+```
+
+If you don't have the Maven wrapper, use `mvn` instead of `./mvnw`.
 
 Open http://localhost:8080
 
