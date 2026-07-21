@@ -6,20 +6,20 @@ H2 is used as the embedded database for development. It stores data locally as a
 
 ## Connection Details
 
-| Property       | Value                  |
-| -------------- | ---------------------- |
-| JDBC URL       | `jdbc:h2:file:./db/chatdb` |
-| Driver Class   | `org.h2.Driver`        |
-| Username       | `albert`               |
-| Password       | `1234`                 |
-| Dialect        | `org.hibernate.dialect.H2Dialect` |
+| Property     | Value                                                               |
+| ------------ | ------------------------------------------------------------------- |
+| JDBC URL     | `jdbc:h2:/home/albert/MyProjects/Sandbox/mockup-nottenim/db/chatdb` |
+| Driver Class | `org.h2.Driver`                                                     |
+| Username     | `albert`                                                            |
+| Password     | `1234`                                                              |
+| Dialect      | `org.hibernate.dialect.H2Dialect`                                   |
 
 ## Database Location
 
 Data files are stored in the `db/` directory at the project root:
 
 ```
-project-root/
+/home/albert/MyProjects/Sandbox/mockup-nottenim/
 ├── db/
 │   ├── chatdb.mv.db      # Main database file
 │   └── chatdb.trace.db   # Trace log (if enabled)
@@ -31,11 +31,20 @@ project-root/
 The H2 web console is available at `/h2-console` when the app is running.
 
 **Login credentials for the console:**
-- JDBC URL: `jdbc:h2:file:./db/chatdb`
+
+- JDBC URL: `jdbc:h2:/home/albert/MyProjects/Sandbox/mockup-nottenim/db/chatdb`
 - Username: `albert`
 - Password: `1234`
 
 ## Configuration (`application.properties`)
+
+**Linux (absolute path):**
+
+```properties
+spring.datasource.url=jdbc:h2:/home/albert/MyProjects/Sandbox/mockup-nottenim/db/chatdb
+```
+
+**Portable (relative path):**
 
 ```properties
 spring.datasource.url=jdbc:h2:file:./db/chatdb
