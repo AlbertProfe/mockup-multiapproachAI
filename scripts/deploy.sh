@@ -2,17 +2,18 @@
 set -euo pipefail
 
 APP_NAME="chatbot"
-PROD_DIR="$(dirname "$0")/../prod-jar"
-SCRIPT_DIR="$(dirname "$0")"
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+PROJECT_DIR="$ROOT_DIR/multiApproachAi"
+PROD_DIR="$ROOT_DIR/prod-jar"
 
 mkdir -p "$PROD_DIR"
 
 echo "=== Building JAR ==="
-"$SCRIPT_DIR/../mvnw" clean package -DskipTests -q
+(cd "$PROJECT_DIR" && mvn clean package -DskipTests -q)
 
-JAR_FILE="$(ls "$SCRIPT_DIR/../target/"*.jar 2>/dev/null | head -1)"
+JAR_FILE="$(ls "$PROJECT_DIR/target/"*.jar 2>/dev/null | head -1)"
 if [ -z "$JAR_FILE" ]; then
-  echo "ERROR: no JAR found in target/"
+  echo "ERROR: no JAR found in multiApproachAi/target/"
   exit 1
 fi
 

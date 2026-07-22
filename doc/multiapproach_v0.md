@@ -18,19 +18,29 @@ A Spring Boot chatbot mockup that demonstrates a full-stack AI chat interface. B
 ## Project Structure
 
 ```
-src/main/java/com/example/chatbot/
-├── ChatbotApplication.java       # Entry point
-├── config/WebConfig.java         # CORS configuration
-├── controller/ChatController.java # Web & REST endpoints
-├── entity/ChatMessage.java       # JPA entity
-├── repository/                   # Spring Data JPA
-└── service/
-    ├── ChatService.java          # Message persistence
-    └── AiChatService.java        # AI model interaction
-src/main/resources/
-├── application.properties        # Configuration
-├── static/css/style.css          # Chat UI styles
-└── templates/chat.html           # Thymeleaf template
+multiApproachAi/
+├── pom.xml
+├── src/main/java/com/example/chatbot/
+│   ├── ChatbotApplication.java       # Entry point
+│   ├── config/WebConfig.java         # CORS configuration
+│   ├── controller/ChatController.java # Web & REST endpoints
+│   ├── entity/ChatMessage.java       # JPA entity
+│   ├── repository/                   # Spring Data JPA
+│   └── service/
+│       ├── ChatService.java          # Message persistence
+│       └── AiChatService.java        # AI model interaction
+└── src/main/resources/
+    ├── application.properties        # Configuration
+    ├── static/css/style.css          # Chat UI styles
+    └── templates/chat.html           # Thymeleaf template
+```
+
+## How to Run
+
+```bash
+cd multiApproachAi
+export OPENAI_API_KEY=sk-...
+mvn spring-boot:run
 ```
 
 ## How to Run

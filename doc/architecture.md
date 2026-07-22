@@ -30,7 +30,7 @@
 
 ### 1. Presentation Layer (Controller)
 
-**`ChatController`** — `src/main/java/.../controller/ChatController.java`
+**`ChatController`** — `multiApproachAi/src/main/java/.../controller/ChatController.java`
 
 | Endpoint | Method | Description                |
 | -------- | ------ | -------------------------- |
