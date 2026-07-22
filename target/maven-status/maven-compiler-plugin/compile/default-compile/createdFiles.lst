@@ -1,8 +1,0 @@
-com/example/chatbot/controller/ChatController.class
-com/example/chatbot/service/AiChatService.class
-com/example/chatbot/ChatbotApplication.class
-com/example/chatbot/repository/ChatMessageRepository.class
-com/example/chatbot/config/WebConfig.class
-com/example/chatbot/config/WebConfig$1.class
-com/example/chatbot/entity/ChatMessage.class
-com/example/chatbot/service/ChatService.class
