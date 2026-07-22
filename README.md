@@ -32,22 +32,54 @@ Java 21 · Spring Boot 3.2.5 · Thymeleaf · H2 (file-based) · JPA · Spring AI
 ## Project Structure
 
 ```
-multiApproachAi/
-├── pom.xml
-├── src/main/java/com/example/chatbot/
-│   ├── ChatbotApplication.java
-│   ├── config/WebConfig.java
-│   ├── controller/ChatController.java
-│   ├── entity/ChatMessage.java
-│   ├── repository/ChatMessageRepository.java
-│   └── service/
-│       ├── ChatService.java
-│       └── AiChatService.java
-└── src/main/resources/
-    ├── application.properties
-    ├── static/css/style.css
-    └── templates/chat.html
+root/
+├── .git/
+├── .gitignore
+├── .idea/
+├── db/                       # H2 database files
+├── doc/                      # Documentation
+│   ├── architecture.md
+│   ├── h2-database.md
+│   ├── multiapproach_v0.md
+│   ├── devops/deploy-flow.md
+│   └── screenshots/
+├── multiApproachAi/          # Spring Boot project
+│   ├── pom.xml
+│   └── src/
+│       ├── main/java/com/example/chatbot/
+│       │   ├── ChatbotApplication.java
+│       │   ├── config/WebConfig.java
+│       │   ├── controller/ChatController.java
+│       │   ├── entity/ChatMessage.java
+│       │   ├── repository/ChatMessageRepository.java
+│       │   └── service/
+│       │       ├── ChatService.java
+│       │       └── AiChatService.java
+│       └── main/resources/
+│           ├── application.properties
+│           ├── static/css/style.css
+│           └── templates/chat.html
+├── prod-jar/                 # Deploy artifacts
+│   ├── Dockerfile
+│   └── chatbot.jar
+├── scripts/
+│   └── deploy.sh
+└── README.md
 ```
+
+## Deploy Pipeline
+
+See [`doc/devops/deploy-flow.md`](doc/devops/deploy-flow.md) for full details.
+
+```
+scripts/deploy.sh  ──►  prod-jar/chatbot.jar  ──►  Docker  ──►  Railway
+```
+
+| Step | Command | Description |
+| ---- | ------- | ----------- |
+| Build | `./scripts/deploy.sh` | Runs `mvn clean package` in `multiApproachAi/`, copies JAR to `prod-jar/` |
+| Docker | `docker build -t chatbot prod-jar/` | Builds image from `prod-jar/Dockerfile` |
+| Deploy | `railway up` | Deploys to Railway |
 
 ## Endpoints
 
@@ -59,7 +91,7 @@ multiApproachAi/
 
 ## Documentation
 
-See [`doc/`](doc/) for architecture overview, database config, and screenshots.
+See [`doc/`](doc/) for architecture overview, database config, deploy pipeline, and screenshots.
 
 ## Configuration
 
