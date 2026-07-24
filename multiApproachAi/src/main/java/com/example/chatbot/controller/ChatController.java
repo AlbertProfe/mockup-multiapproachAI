@@ -28,6 +28,11 @@ public class ChatController {
         return "chat";
     }
 
+    @GetMapping("/v0.1")
+    public String v01(Model model) {
+        return "chat-v01";
+    }
+
     @PostMapping("/send")
     @ResponseBody
     public Map<String, String> sendMessage(@RequestBody Map<String, String> payload) {

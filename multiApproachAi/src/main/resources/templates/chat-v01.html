@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant - v0.1</title>
+  <link rel="stylesheet" href="/css/app-v0.1.css">
+</head>
+<body>
+<div style="display:flex;gap:16px;padding:8px 20px;background:#1a73e8;color:white;font-size:13px;align-items:center;z-index:100;position:relative;">
+    <span style="font-weight:600;">Mockup</span>
+    <a href="/" style="color:white;text-decoration:none;opacity:0.8;">v0</a>
+    <a href="/v0.1" style="color:white;text-decoration:none;opacity:0.8;">v0.1 (current)</a>
+</div>
+<div class="dashboard" style="height:calc(100vh - 37px)">
+
+  <!-- Left Column: Sidebar -->
+  <aside class="left-column">
+    <div class="sidebar-header">Navigation</div>
+    <ul class="sidebar-menu">
+      <li>New Chat</li>
+      <li>Chat History</li>
+      <li>Settings</li>
+      <li>Help</li>
+    </ul>
+    <div class="sidebar-footer">
+      <div class="dark-mode-toggle">
+        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+        <label for="darkModeToggle">Dark Mode</label>
+      </div>
+      <button class="logout-btn" onclick="window.location.href='/'">Log Out</button>
+    </div>
+  </aside>
+
+  <!-- Center Column: Chat -->
+  <main class="center-column">
+    <div class="chat-header">
+      <button class="hamburger" onclick="toggleSidebar()">☰</button>
+      <h1>AI Assistant</h1>
+    </div>
+
+    <div class="chat-messages" id="chatHistory">
+      <div class="message assistant" data-message-id="msg-1" onclick="selectMessage('msg-1')">
+        Welcome! I'm your AI assistant. Ask me anything, and I'll provide a detailed response with sources and analysis.
+      </div>
+    </div>
+
+    <!-- Active Answer Toolbar -->
+    <div class="active-answer-toolbar" id="activeToolbar">
+      <button id="downloadPdf">⬇ Download PDF</button>
+      <span id="wordCountDisplay">Word count: 0</span>
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area">
+      <div class="length-selector">
+        <label><input type="radio" name="responseLength" value="short"> Short</label>
+        <label><input type="radio" name="responseLength" value="medium" checked> Medium</label>
+        <label><input type="radio" name="responseLength" value="long"> Long</label>
+      </div>
+      <div class="input-row">
+        <textarea id="messageInput" rows="2" placeholder="Type your message..."></textarea>
+        <button onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Column: Verification, Bias & Sources -->
+  <aside class="right-column" id="rightColumn">
+    <div class="right-section">
+      <h3>Statement Evaluator</h3>
+      <div id="evaluatorCards"></div>
+    </div>
+
+    <div class="right-section">
+      <h3>AI Bias Metrics</h3>
+      <div id="biasMetrics"></div>
+    </div>
+
+    <div class="right-section">
+      <h3>Source Attribution</h3>
+      <div id="sourceList"></div>
+    </div>
+  </aside>
+
+</div>
+
+<script src="/js/app-v0.1.js"></script>
+</body>
+</html>

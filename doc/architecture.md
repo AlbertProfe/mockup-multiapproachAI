@@ -32,10 +32,10 @@
 
 **`ChatController`** — `multiApproachAi/src/main/java/.../controller/ChatController.java`
 
-| Endpoint | Method | Description                |
-| -------- | ------ | -------------------------- |
-| `GET /`  | HTML   | Renders chat page with history |
-| `POST /send` | JSON | Accepts message, returns AI reply |
+| Endpoint     | Method | Description                       |
+| ------------ | ------ | --------------------------------- |
+| `GET /`      | HTML   | Renders chat page with history    |
+| `POST /send` | JSON   | Accepts message, returns AI reply |
 
 ### 2. Service Layer
 
@@ -92,12 +92,12 @@ spring-ai-openai-spring-boot-starter
 
 ## Configuration Properties (`application.properties`)
 
-| Property                    | Purpose                      |
-| --------------------------- | ---------------------------- |
-| `spring.datasource.url`     | H2 JDBC URL (in-memory)      |
-| `spring.jpa.hibernate.ddl-auto` | Schema generation (`update`) |
-| `spring.ai.openai.api-key`  | OpenAI API key               |
-| `spring.ai.openai.model`    | Model name (default `gpt-4o-mini`) |
+| Property                        | Purpose                            |
+| ------------------------------- | ---------------------------------- |
+| `spring.datasource.url`         | H2 JDBC URL (in-memory)            |
+| `spring.jpa.hibernate.ddl-auto` | Schema generation (`update`)       |
+| `spring.ai.openai.api-key`      | OpenAI API key                     |
+| `spring.ai.openai.model`        | Model name (default `gpt-4o-mini`) |
 
 ## Data Flow — Chat Request
 
